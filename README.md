@@ -51,8 +51,10 @@ Cluster configuration files (spark-env.sh, workers) ensured consistent runtime e
 
 # Dataset
 We had originally planned on using the MIMIC-IV Version 3.1 dataset from PhysioNet, but had troubles retrieving the data due to permission issues. We ended up using a dataset we found on Kaggle that gave us practically the same data.
+
 Source: [HOSP&ICU-datasets(100000 med-data from 2001-2019）]([url](https://www.kaggle.com/datasets/luciadam/icu-datasets?resource=download))
-Reference: Luciadam. “HOSP&ICU-Datasets(100000 Med-Data from 2001-2019）.” Kaggle, 3 Apr. 2025, www.kaggle.com/datasets/luciadam/icu-datasets?resource=download. 
+
+Reference: Kaggle. (2024). HOSP & ICU Datasets (100,000 med-data from 2001–2019) [Dataset]. Retrieved from https://www.kaggle.com/datasets/luciadam/icu-datasets. 
 
 # Methods Summary
 ## Preprocessing
