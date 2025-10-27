@@ -1,7 +1,7 @@
 # Predicting ICU Length of Stay Using Spark-Based Regression
 This project focuses on predicting Intensive Care Unit (ICU) length of stay (LOS) using distributed data processing and machine learning with Apache Spark. Accurate LOS prediction is important for optimizing hospital resource allocation and improving patient care.
 
-By using the MIMIC-IV (v3.1) clinical dataset and running PySpark across multiple virtual machines, this project shows the power of big data analytics and parallel computation in healthcare prediction tasks.
+By using the a subset of a publicly available ICU dataset obtained from Kaggle titled “HOSP & ICU Datasets (100,000 med-data from 2001–2019) datas clinical dataset and running PySpark across multiple virtual machines, this project shows the power of big data analytics and parallel computation in healthcare prediction tasks.
 
 # Overview
 Hospital intensive care units (ICUs) face constant pressure to manage resources effectively. Predicting patient length of stay helps clinicians and administrators plan staffing, bed allocation, and treatment scheduling.
