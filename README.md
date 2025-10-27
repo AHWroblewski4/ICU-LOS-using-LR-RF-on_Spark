@@ -1,7 +1,7 @@
 # Predicting ICU Length of Stay Using Spark-Based Regression
 This project focuses on predicting Intensive Care Unit (ICU) length of stay (LOS) using distributed data processing and machine learning with Apache Spark. Accurate LOS prediction is important for optimizing hospital resource allocation and improving patient care.
 
-By using the MIMIC-IV (v3.1) clinical dataset and running PySpark across multiple virtual machines, this project shows the power of big data analytics and parallel computation in healthcare prediction tasks.
+By using the a subset of a publicly available ICU dataset obtained from Kaggle titled “HOSP & ICU Datasets (100,000 med-data from 2001–2019) datas clinical dataset and running PySpark across multiple virtual machines, this project shows the power of big data analytics and parallel computation in healthcare prediction tasks.
 
 # Overview
 Hospital intensive care units (ICUs) face constant pressure to manage resources effectively. Predicting patient length of stay helps clinicians and administrators plan staffing, bed allocation, and treatment scheduling.
@@ -23,12 +23,23 @@ Each team member implemented a different regression method for comparison:
 Both models were trained and evaluated on an 80/20 train-test split using the same preprocessed dataset.
 
 # Results
+## Compare Models
 | Model | RMSE (days) | R^2 | Description |
 |---|---|---|---|
 | Linear Regression | 9.778 | 0.017 | Baseline model |
 | Random Forest | 9.567 | 0.059 | Slight improvement, captures some nonlinearities |
 
 Both models show limited predictive power, indicating that LOS might depend on additional variables or nonlinear relationships. Future improvements might include log-transformed targets, feature expansion, and hyperparameter tuning with CrossValidator.
+
+## Performance Comparison
+| Number of VMs | Cores Used (8 per VM) | Duration (mins) | Duration (seconds) |
+|---|---|---|---|
+| 1 | 8 | 1.7 | 102.0 |
+| 2 | 16 | 1.4 | 84.0 |
+| 3 | 24 | 1.4 | 84.0 |
+| 4 | 32 | 1.5 | 90 |
+
+The runtime decreased as the number of VMs increased from one to three, showing that Spark’s distributed processing improved efficiency by about 20%. However, performance slightly declined with four VMs, likely due to increased communication overhead between nodes.
 
 # Distributed Cluster Setup
 To handle the dataset’s scale, the project was deployed on four virtual machines (VMs):
@@ -40,8 +51,10 @@ Cluster configuration files (spark-env.sh, workers) ensured consistent runtime e
 
 # Dataset
 We had originally planned on using the MIMIC-IV Version 3.1 dataset from PhysioNet, but had troubles retrieving the data due to permission issues. We ended up using a dataset we found on Kaggle that gave us practically the same data.
+
 Source: [HOSP&ICU-datasets(100000 med-data from 2001-2019）]([url](https://www.kaggle.com/datasets/luciadam/icu-datasets?resource=download))
-Reference: Luciadam. “HOSP&ICU-Datasets(100000 Med-Data from 2001-2019）.” Kaggle, 3 Apr. 2025, www.kaggle.com/datasets/luciadam/icu-datasets?resource=download. 
+
+Reference: Kaggle. (2024). HOSP & ICU Datasets (100,000 med-data from 2001–2019) [Dataset]. Retrieved from https://www.kaggle.com/datasets/luciadam/icu-datasets. 
 
 # Methods Summary
 ## Preprocessing
