@@ -27,6 +27,7 @@ Both models were trained and evaluated on an 80/20 train-test split using the sa
 |---|---|---|---|
 | Linear Regression | 9.778 | 0.017 | Baseline model |
 | Random Forest | 9.567 | 0.059 | Slight improvement, captures some nonlinearities |
+
 Both models show limited predictive power, indicating that LOS might depend on additional variables or nonlinear relationships. Future improvements might include log-transformed targets, feature expansion, and hyperparameter tuning with CrossValidator.
 
 # Distributed Cluster Setup
