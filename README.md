@@ -23,12 +23,23 @@ Each team member implemented a different regression method for comparison:
 Both models were trained and evaluated on an 80/20 train-test split using the same preprocessed dataset.
 
 # Results
+## Compare Models
 | Model | RMSE (days) | R^2 | Description |
 |---|---|---|---|
 | Linear Regression | 9.778 | 0.017 | Baseline model |
 | Random Forest | 9.567 | 0.059 | Slight improvement, captures some nonlinearities |
 
 Both models show limited predictive power, indicating that LOS might depend on additional variables or nonlinear relationships. Future improvements might include log-transformed targets, feature expansion, and hyperparameter tuning with CrossValidator.
+
+## Performance Comparison
+| Number of VMs | Cores Used (8 per VM) | Duration (mins) | Duration (seconds) |
+|---|---|---|---|
+| 1 | 8 | 1.7 | 102.0 |
+| 2 | 16 | 1.4 | 84.0 |
+| 3 | 24 | 1.4 | 84.0 |
+| 4 | 32 | 1.5 | 90 |
+
+The runtime decreased as the number of VMs increased from one to three, showing that Spark’s distributed processing improved efficiency by about 20%. However, performance slightly declined with four VMs, likely due to increased communication overhead between nodes.
 
 # Distributed Cluster Setup
 To handle the dataset’s scale, the project was deployed on four virtual machines (VMs):
